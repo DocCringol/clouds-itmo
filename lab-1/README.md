@@ -81,3 +81,50 @@ http {
     }
 }
 ```
+
+## Генерация сертификата
+
+TBD
+
+```bash
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj '/CN=localhost'
+```
+
+## Подключение сертификата
+
+TBD
+
+```nginx
+server {
+    listen 443 ssl;
+
+    ssl_certificate /etc/nginx/cert.pem;
+    ssl_certificate_key /etc/nginx/key.pem;
+
+    location /cats {
+        proxy_pass http://project1/random-cat;
+    }
+
+    location /dogs {
+        proxy_pass http://project2/random-dog;
+    }
+
+    location / {
+        return 404 "Not Found";
+    }
+}
+```
+
+## Проброс http -> https
+
+TBD
+
+```nginx
+server {
+    listen 80;
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+```
