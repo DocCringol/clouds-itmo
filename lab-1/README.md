@@ -67,11 +67,11 @@ http {
     server {
         listen 80;
 
-        location /cats {
+        location /cats/ {
             proxy_pass http://project1/random-cat;
         }
 
-        location /dogs {
+        location /dogs/ {
             proxy_pass http://project2/random-dog;
         }
 
@@ -101,11 +101,11 @@ server {
     ssl_certificate /etc/nginx/cert.pem;
     ssl_certificate_key /etc/nginx/key.pem;
 
-    location /cats {
+    location /cats/ {
         proxy_pass http://project1/random-cat;
     }
 
-    location /dogs {
+    location /dogs/ {
         proxy_pass http://project2/random-dog;
     }
 
@@ -137,4 +137,14 @@ TBD
 location /static/ {
     alias /var/www/static/;
 }
+```
+
+## Использование "виртуальных хостов"
+
+TBD
+
+`/etc/hosts`
+
+```
+127.0.0.1 cats.local dogs.local
 ```
