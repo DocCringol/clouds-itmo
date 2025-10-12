@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  project-1:
+    build: ./project-1
+    ports:
+      - "8888:8080"
+    command: python main.py
+
+  project-2:
+    build: ./project-2
+    ports:
+      - "9999:8080"
+    command: python main.py
