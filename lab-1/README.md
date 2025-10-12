@@ -128,3 +128,13 @@ server {
     }
 }
 ```
+
+## Добавление alias для доступа к /static/ роуту
+
+TBD
+
+```nginx
+location /static/ {
+    alias /var/www/static/;
+}
+```
