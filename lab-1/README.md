@@ -245,3 +245,9 @@ location /static/ {
         }
     }
 ```
+
+## Скрины результата
+
+![кот](images/cat-screen.png)
+
+![собака](images/dog-screen.png)
